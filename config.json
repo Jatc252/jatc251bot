@@ -1,4 +1,5 @@
 {
+  "info":  "This file need to be placed in *project*/bin/Debug/netcoreapp3.1/config.json otherwise the program can't access it'"
   "token": "",
-  "prefix":  "~"
+  "prefix": "~"
 }
