@@ -26,7 +26,7 @@ namespace Jatc251Bot.Commands
         [Description("Returns your top-most role's color in hex format")]
         public async Task Roles(CommandContext ctx)
         {
-            await ctx.Channel.SendMessageAsync(ctx.Member.Color.ToString() + "%").ConfigureAwait(false);
+            await ctx.Channel.SendMessageAsync(ctx.Member.Color.ToString()).ConfigureAwait(false);
 
         }
     }

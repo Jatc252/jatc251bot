@@ -1,5 +1,6 @@
 ﻿using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.Interactivity.Extensions;
 using System;
 using System.Threading.Tasks;
 
@@ -38,6 +39,17 @@ namespace Jatc251Bot.Commands
 
             await ctx.Channel.SendMessageAsync(randomNumber.ToString() + "%").ConfigureAwait(false);
 
+        }
+
+        [Command("echo")]
+        [Description("Repeats the next message sent in the channel the command was used in. Maximum of two minutes wait")]
+        public async Task Response(CommandContext ctx)
+        {
+            var interactivity = ctx.Client.GetInteractivity();
+
+            var message = await interactivity.WaitForMessageAsync(x => x.Channel == ctx.Channel).ConfigureAwait(false);
+
+            await ctx.Channel.SendMessageAsync(message.Result.Content);
         }
 
     }
