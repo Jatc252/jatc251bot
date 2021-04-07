@@ -49,6 +49,7 @@ namespace Jatc251Bot
             Commands = Client.UseCommandsNext(commandsConfig);
 
             Commands.RegisterCommands<FunCommands>();
+            Commands.RegisterCommands<MemberCommands>();
 
             await Client.ConnectAsync();
 
