@@ -1,4 +1,4 @@
-name: .NET
+name: Jatc251Bot
 
 on:
   push:
@@ -23,3 +23,13 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Upload executable
+      uses: actions/upload-artifact@v2.2.3
+      with:
+       name: Jatc251Bot Executable
+       path: bin/Debug/netcoreapp3.1/Jatc251Bot.exe
+    - name: Upload config JSON
+      uses: actions/upload-artifact@v2.2.3
+      with:
+       name: Jatc251Bot Config JSON
+       path: bin/Debug/netcoreapp3.1/config.json
